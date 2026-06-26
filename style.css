@@ -1,0 +1,495 @@
+/* ==========================================
+   AGENCY-LEVEL PREMIUM CUSTOM COLOR PALETTE
+========================================== */
+:root {
+    --font-primary: 'Plus Jakarta Sans', sans-serif;
+    --font-cursive: 'Caveat', cursive;
+    
+    --luxury-bg: #fff5f7;
+    --luxury-pink: #ff4da6;
+    --luxury-pink-dark: #8c2053;
+    --text-primary: #2d1a24;
+    --text-muted: #735d68;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--luxury-bg);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+}
+
+.luxury-overlay-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99;
+}
+
+section {
+    padding: 120px 8%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* ==========================================
+   HERO DISPLAY
+========================================== */
+.premium-hero {
+    background: linear-gradient(135deg, #ffebf0 0%, #ffccd8 100%);
+}
+
+.hero-inner-frame {
+    text-align: center;
+    max-width: 850px;
+    position: relative;
+}
+
+.glow-spotlight {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 77, 166, 0.2);
+    border-radius: 50%;
+    filter: blur(100px);
+    top: -50%; left: 25%;
+    z-index: -1;
+}
+
+.timestamp-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: white;
+    border: 1px solid rgba(255, 77, 166, 0.25);
+    color: var(--luxury-pink-dark);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.cinematic-title {
+    font-size: clamp(38px, 6.5vw, 68px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #1a0811;
+    letter-spacing: -2px;
+}
+
+.gradient-text-glow {
+    background: linear-gradient(45deg, var(--luxury-pink), #ff85be, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cinematic-subtitle {
+    font-size: clamp(16px, 2.2vw, 22px);
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-top: 25px;
+    max-width: 680px;
+}
+
+.heart-pulse-indicator {
+    display: flex;
+    gap: 14px;
+    font-size: 20px;
+    margin: 35px 0;
+    justify-content: center;
+    animation: smoothPulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes smoothPulse {
+    from { transform: scale(1); opacity: 0.6; }
+    to { transform: scale(1.12); opacity: 1; }
+}
+
+.btn-premium-primary {
+    background: linear-gradient(90deg, #ff4da6, #ff73b9);
+    color: white;
+    padding: 18px 42px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 77, 166, 0.35);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-premium-primary:hover:not(:disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(255, 77, 166, 0.5);
+}
+
+.style-disabled:disabled {
+    background: #e2d6dc;
+    color: #a3969d;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* ==========================================
+   INTERACTIVE CAKE SYSTEM
+========================================== */
+.cake-wrapper-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 30px;
+}
+
+.interactive-cake-panel {
+    background: white;
+    border: 1px solid rgba(255, 77, 166, 0.15);
+    border-radius: 28px;
+    padding: 60px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(115, 93, 104, 0.05);
+}
+
+.candle-stand {
+    display: flex;
+    gap: 40px;
+    margin-bottom: -5px;
+    z-index: 2;
+}
+
+.candle {
+    width: 14px;
+    height: 60px;
+    background: repeating-linear-gradient(45deg, #ff99cc, #ff99cc 5px, #fff 5px, #fff 10px);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.flame {
+    width: 16px;
+    height: 24px;
+    background: #f59e0b;
+    border-radius: 50% 50% 20% 20%;
+    position: absolute;
+    top: -28px; left: -1px;
+    box-shadow: 0 0 20px #f59e0b, 0 0 40px #ef4444;
+    animation: flicker 0.6s infinite alternate;
+}
+
+@keyframes flicker {
+    from { transform: scale(1); }
+    to { transform: scale(1.15) rotate(2deg); }
+}
+
+.candle.blown .flame {
+    display: none;
+}
+
+.main-celebration-cake {
+    width: 240px;
+    height: 100px;
+    background: linear-gradient(180deg, #ff99cc 0%, #f472b6 100%);
+    border-radius: 20px 20px 10px 10px;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cake-top-frosting {
+    width: 100%;
+    height: 25px;
+    background: #fff0f5;
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-cursive);
+    font-size: 22px;
+    color: var(--luxury-pink-dark);
+    font-weight: 700;
+}
+
+.cake-cut-mark {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: transparent;
+    left: 50%;
+    z-index: 5;
+}
+
+.cake-cut-mark.slice-active {
+    background: #fff;
+    box-shadow: 0 0 8px #ff4da6;
+    animation: cutAnimation 0.5s ease forwards;
+}
+
+@keyframes cutAnimation {
+    from { height: 0; }
+    to { height: 100%; }
+}
+
+.wish-prompt-card {
+    background: white;
+    border: 1px solid rgba(255, 77, 166, 0.12);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.wish-prompt-card h4 {
+    font-size: 24px;
+    color: var(--luxury-pink-dark);
+    margin-bottom: 15px;
+}
+
+.wish-prompt-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   ALBUM GRAPHICS
+========================================== */
+.premium-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1150px;
+}
+
+.premium-polaroid-card {
+    background: white;
+    padding: 16px 16px 28px 16px;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(115, 93, 104, 0.08);
+    cursor: pointer;
+    border: 1px solid rgba(255, 228, 230, 0.5);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+}
+
+.polaroid-image-container {
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.premium-polaroid-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-meta-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--luxury-pink);
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.polaroid-caption-text {
+    font-family: var(--font-cursive);
+    font-size: 24px;
+    text-align: center;
+    margin-top: 6px;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.premium-polaroid-card:hover {
+    box-shadow: 0 25px 50px rgba(255, 77, 166, 0.18);
+}
+
+/* Naye Adventure Box/Scoop styling */
+.ice-cream-flavor-card:hover .flavor-icon-display {
+    transform: scale(1.06) rotate(5deg);
+}
+
+/* ==========================================
+   LETTER SECTION & STICKY NOTE
+========================================== */
+.professional-letter-section {
+    background: linear-gradient(180deg, var(--luxury-bg) 0%, #ffeef2 100%);
+    width: 100%;
+}
+
+.luxury-letter-envelope {
+    background: #fffefe;
+    width: 100%;
+    max-width: 780px;
+    padding: 60px;
+    border-radius: 32px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+    border-left: 6px solid var(--luxury-pink);
+}
+
+.letter-main-header {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--luxury-pink-dark);
+    margin-bottom: 30px;
+}
+
+.letter-body-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+    color: #3b2a33;
+}
+
+.handwritten-signature {
+    font-family: var(--font-cursive);
+    font-size: 34px;
+    color: var(--luxury-pink);
+    margin-top: 40px;
+    font-weight: 700;
+}
+
+.btn-premium-secondary {
+    background: transparent;
+    color: var(--luxury-pink-dark);
+    border: 2px dashed var(--luxury-pink);
+    padding: 14px 30px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-premium-secondary:hover {
+    background: rgba(255, 77, 166, 0.05);
+    transform: scale(1.03);
+}
+
+.digital-sticky-note {
+    display: none;
+    background: #fef08a;
+    color: #451a03;
+    padding: 35px;
+    border-radius: 4px;
+    box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.08);
+    margin-top: 30px;
+    position: relative;
+    transform: rotate(-1deg);
+    border-left: 2px solid #facc15;
+}
+
+.sticky-pin {
+    position: absolute;
+    top: -15px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+}
+
+.digital-sticky-note h4 {
+    font-family: var(--font-cursive);
+    font-size: 26px;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed rgba(69, 26, 3, 0.2);
+    padding-bottom: 5px;
+}
+
+.digital-sticky-note p {
+    font-family: var(--font-cursive);
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+/* ==========================================
+   MODAL THEATER PREVIEW
+========================================== */
+.luxury-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(18, 8, 14, 0.96);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 30px;
+}
+
+.modal-inner-wrapper {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.luxury-modal img {
+    max-width: 90%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 20px;
+    border: 6px solid white;
+}
+
+#modal-target-caption {
+    color: white;
+    font-family: var(--font-cursive);
+    font-size: 30px;
+    margin-top: 25px;
+}
+
+.modal-close-trigger {
+    position: absolute;
+    top: 25px; right: 40px;
+    color: rgba(255,255,255,0.7);
+    font-size: 55px;
+    cursor: pointer;
+}
+
+.luxury-footer {
+    text-align: center;
+    padding: 35px;
+    font-size: 13px;
+    background-color: #ffeef2;
+    color: var(--text-muted);
+}
+
+@media(max-width: 900px) {
+    .cake-wrapper-box { grid-template-columns: 1fr; gap: 30px; }
+    .interactive-cake-panel { height: 320px; padding: 40px; }
+}
+@media(max-width: 768px) {
+    .luxury-letter-envelope { padding: 40px 30px; }
+    section { padding: 90px 6%; }
+}
